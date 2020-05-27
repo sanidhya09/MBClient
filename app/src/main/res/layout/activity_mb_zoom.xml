@@ -17,7 +17,7 @@
         android:backgroundTint="@color/zm_red"
         android:onClick="startMeeting"
         android:padding="10dp"
-        android:text="Start Meeting"
+        android:text="Join Meeting"
         android:textColor="@color/zm_white" />
 
     <Button
