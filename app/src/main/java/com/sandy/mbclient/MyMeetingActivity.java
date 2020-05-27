@@ -1,6 +1,5 @@
 package com.sandy.mbclient;
 
-import us.zoom.sdk.MeetingActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -8,6 +7,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Button;
+
+import us.zoom.sdk.MeetingActivity;
 
 public class MyMeetingActivity extends MeetingActivity {
 
@@ -19,10 +20,6 @@ public class MyMeetingActivity extends MeetingActivity {
     private Button btnStopShare;
     private Button btnMoreOptions;
 
-    private View viewTabMeeting;
-    private Button btnTabWelcome;
-    private Button btnTabMeeting;
-    private Button btnTabPage2;
 
     @Override
     protected int getLayout() {
@@ -45,15 +42,13 @@ public class MyMeetingActivity extends MeetingActivity {
 
         disableFullScreenMode();
 
-        setupTabs();
-
-        btnLeaveZoomMeeting = (Button)findViewById(R.id.btnLeaveZoomMeeting);
-        btnSwitchToNextCamera = (Button)findViewById(R.id.btnSwitchToNextCamera);
-        btnAudio = (Button)findViewById(R.id.btnAudio);
-        btnParticipants = (Button)findViewById(R.id.btnParticipants);
-        btnShare = (Button)findViewById(R.id.btnShare);
-        btnStopShare = (Button)findViewById(R.id.btnStopShare);
-        btnMoreOptions = (Button)findViewById(R.id.btnMoreOptions);
+        btnLeaveZoomMeeting = (Button) findViewById(R.id.btnLeaveZoomMeeting);
+        btnSwitchToNextCamera = (Button) findViewById(R.id.btnSwitchToNextCamera);
+        btnAudio = (Button) findViewById(R.id.btnAudio);
+        btnParticipants = (Button) findViewById(R.id.btnParticipants);
+        btnShare = (Button) findViewById(R.id.btnShare);
+        btnStopShare = (Button) findViewById(R.id.btnStopShare);
+        btnMoreOptions = (Button) findViewById(R.id.btnMoreOptions);
 
         btnLeaveZoomMeeting.setOnClickListener(new OnClickListener() {
 
@@ -76,7 +71,7 @@ public class MyMeetingActivity extends MeetingActivity {
             @Override
             public void onClick(View v) {
                 //doAudioAction();
-                if(!isAudioConnected()) {
+                if (!isAudioConnected()) {
                     connectVoIP();
                 } else {
                     muteAudio(!isAudioMuted());
@@ -119,69 +114,20 @@ public class MyMeetingActivity extends MeetingActivity {
     }
 
     @Override
-    public void onConfigurationChanged (Configuration newConfig) {
+    public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
         disableFullScreenMode();
     }
 
     private void disableFullScreenMode() {
-        getWindow().setFlags(~WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams. FLAG_FULLSCREEN);
-    }
-
-    private void setupTabs() {
-        viewTabMeeting = findViewById(R.id.viewTabMeeting);
-        btnTabWelcome = (Button)findViewById(R.id.btnTabWelcome);
-        btnTabMeeting = (Button)findViewById(R.id.btnTabMeeting);
-        btnTabPage2 = (Button)findViewById(R.id.btnTabPage2);
-
-        selectTab(MbZoomActivity.TAB_MEETING);
-
-//        btnTabMeeting.setOnClickListener(new OnClickListener() {
-//            public void onClick(View v) {
-//                selectTab(MbZoomActivity.TAB_MEETING);
-//            }
-//        });
-//
-//        btnTabWelcome.setOnClickListener(new OnClickListener() {
-//            public void onClick(View v) {
-//                selectTab(MbZoomActivity.TAB_WELCOME);
-//            }
-//        });
-//
-//        btnTabPage2.setOnClickListener(new OnClickListener() {
-//            public void onClick(View v) {
-//                selectTab(MbZoomActivity.TAB_PAGE_2);
-//            }
-//        });
-    }
-
-    private void selectTab(int tabId) {
-        if(tabId == MbZoomActivity.TAB_MEETING) {
-            btnTabWelcome.setSelected(false);
-            btnTabPage2.setSelected(false);
-            btnTabMeeting.setSelected(true);
-        } else {
-            switchToMainActivity(tabId);
-        }
-    }
-
-    private void switchToMainActivity(int tab) {
-        Intent intent = new Intent(this, MbZoomActivity.class);
-        intent.setAction(MbZoomActivity.ACTION_RETURN_FROM_MEETING);
-        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        intent.putExtra(MbZoomActivity.EXTRA_TAB_ID, tab);
-
-        startActivity(intent);
+        getWindow().setFlags(~WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         updateButtonsStatus();
-
-        // disable animation
-        overridePendingTransition(0, 0);
     }
 
     @Override
@@ -216,7 +162,7 @@ public class MyMeetingActivity extends MeetingActivity {
         btnShare.setEnabled(enabled);
         btnMoreOptions.setEnabled(enabled);
 
-        if(isSharingOut()) {
+        if (isSharingOut()) {
             btnShare.setVisibility(View.GONE);
             btnStopShare.setVisibility(View.VISIBLE);
         } else {

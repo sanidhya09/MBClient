@@ -117,10 +117,11 @@ public class MbZoomActivity extends Activity implements Constants, MeetingServic
         opts.no_disconnect_audio = true;
         opts.no_share = true;
         opts.invite_options = InviteOptions.INVITE_VIA_EMAIL + InviteOptions.INVITE_VIA_SMS;
-        opts.no_audio = true;
-        opts.no_video = true;
+        opts.no_audio = false;
+        opts.no_video = false;
         opts.meeting_views_options = MeetingViewsOptions.NO_BUTTON_SHARE;
         opts.no_meeting_error_message = true;
+        //opts.webinar_token = "";
 //        opts.participant_id = "participant id";
 
         JoinMeetingParams params = new JoinMeetingParams();
@@ -145,7 +146,7 @@ public class MbZoomActivity extends Activity implements Constants, MeetingServic
 
         if (meetingStatus == MeetingStatus.MEETING_STATUS_IDLE || meetingStatus == MeetingStatus.MEETING_STATUS_FAILED) {
 //            selectTab(TAB_WELCOME);
-            Toast.makeText(this, "Meeting END", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "Meeting END", Toast.LENGTH_LONG).show();
         }
     }
 
