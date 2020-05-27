@@ -1,64 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="horizontal">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/zm_white"
+    android:orientation="vertical"
+    tools:context=".MbZoomActivity">
 
-    <FrameLayout
-        android:id="@+id/tabcontent"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+    <Button
+        android:id="@+id/btnTabMeeting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/zm_red"
+        android:onClick="startMeeting"
+        android:padding="10dp"
+        android:text="Start Meeting"
+        android:textColor="@color/zm_white" />
 
-        <TextView
-            android:id="@+id/viewTabWelcome"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Hello, world" />
-
-        <TextView
-            android:id="@+id/viewTabPage2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Page 2" />
-
-        <TextView
-            android:id="@+id/viewTabMeeting"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Waiting..." />
-
-    </FrameLayout>
-
-    <LinearLayout
-        android:id="@+id/tabs"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="top"
-        android:background="#8080ff"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/btnTabWelcome"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:text="Welcome" />
-
-        <Button
-            android:id="@+id/btnTabPage2"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:text="Page 2" />
-
-        <Button
-            android:id="@+id/btnTabMeeting"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:text="Meeting" />
-
-    </LinearLayout>
-
+    <Button
+        android:id="@+id/btnExit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/zm_red"
+        android:onClick="exitApp"
+        android:padding="10dp"
+        android:text="Exit"
+        android:textColor="@color/zm_white" />
 </LinearLayout>

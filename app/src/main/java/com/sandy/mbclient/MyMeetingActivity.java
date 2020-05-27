@@ -137,23 +137,23 @@ public class MyMeetingActivity extends MeetingActivity {
 
         selectTab(MbZoomActivity.TAB_MEETING);
 
-        btnTabMeeting.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                selectTab(MbZoomActivity.TAB_MEETING);
-            }
-        });
-
-        btnTabWelcome.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                selectTab(MbZoomActivity.TAB_WELCOME);
-            }
-        });
-
-        btnTabPage2.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                selectTab(MbZoomActivity.TAB_PAGE_2);
-            }
-        });
+//        btnTabMeeting.setOnClickListener(new OnClickListener() {
+//            public void onClick(View v) {
+//                selectTab(MbZoomActivity.TAB_MEETING);
+//            }
+//        });
+//
+//        btnTabWelcome.setOnClickListener(new OnClickListener() {
+//            public void onClick(View v) {
+//                selectTab(MbZoomActivity.TAB_WELCOME);
+//            }
+//        });
+//
+//        btnTabPage2.setOnClickListener(new OnClickListener() {
+//            public void onClick(View v) {
+//                selectTab(MbZoomActivity.TAB_PAGE_2);
+//            }
+//        });
     }
 
     private void selectTab(int tabId) {
