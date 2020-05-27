@@ -22,12 +22,6 @@ import us.zoom.sdk.ZoomSDKInitializeListener;
 public class MbZoomActivity extends Activity implements Constants, MeetingServiceListener, ZoomSDKInitializeListener {
 
     private final static String TAG = "Sandy Test";
-
-    public final static String ACTION_RETURN_FROM_MEETING = "com.sandy.mbclient.action.ReturnFromMeeting";
-    public final static String EXTRA_TAB_ID = "tabId";
-
-    public final static int TAB_MEETING = 2;
-
     private final static String DISPLAY_NAME = "Attendee 1";
 
     @Override
